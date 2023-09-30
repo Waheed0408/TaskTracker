@@ -1,0 +1,150 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    color: #007bff;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Input and Button Styles */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    background-color: #e0e0e0;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    transform-origin: 50% 50%;
+    position: relative;
+}
+
+li.completed {
+    background-color: #f0f0f0;
+    border-color: #4CAF50;
+    text-decoration: line-through;
+    color: #555;
+}
+
+.done-button {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    margin-left: 10px;
+}
+
+.done-button:hover {
+    background-color: #c9302c;
+    transform: scale(1.1); /* Add a subtle scaling effect on hover */
+}
+
+.done-button.completed {
+    background-color: #4CAF50;
+    transform: scale(1.1); /* Add a subtle scaling effect when completed */
+}
+
+.delete-button.completed {
+    background-color: #FF5722;
+}
+
+/* Animation for reordering and sliding */
+li.dragging {
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    background-color: #f0f0f0;
+}
+
+/* Slide in from the left when added */
+li.slide-in {
+    transform: translateX(-100%);
+    animation: slideIn 0.4s ease forwards;
+}
+
+/* Fade out and slide up when removed */
+li.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeOut 0.3s ease forwards, slideUp 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(-100px);
+    }
+}
